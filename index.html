@@ -23,6 +23,7 @@
             justify-content: space-between;
             height: 100vh;
             overflow: hidden;
+            overflow-y: auto;
         }
 
         .header {
@@ -66,6 +67,44 @@
             transform: scale(1.1);
         }
 
+        .clouds {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Para que las nubes estén en el fondo */
+        }
+
+        .cloud {
+            position: absolute;
+            opacity: 0.4; /* Nubes semi-transparentes */
+        }
+
+        .cloud1 {
+            top: 10%;
+            left: 5%;
+            width: 200px;
+        }
+
+        .cloud2 {
+            top: 30%;
+            right: 10%;
+            width: 250px;
+        }
+
+        .cloud3 {
+            bottom: 20%;
+            left: 40%;
+            width: 300px;
+        }
+
+        .cloud3 {
+            bottom: 10%;
+            left: 10%;
+            width: 300px;
+        }
+
 
         .character-container {
             position: relative;
@@ -75,7 +114,7 @@
         }
 
         .character-img {
-            width: 450px;
+            width: 350px;
             height: auto;
             transition: transform 0.3s;
         }
@@ -265,7 +304,7 @@
             background-color: #10362C;
             color: white;
             border: none;
-            padding: 14px 20px;
+            padding: 12px 18px;
             border-radius: 40px;
             cursor: pointer;
             font-size: 1.2rem;
@@ -273,8 +312,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 0px;
+            margin: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            bottom: 20px; /* Distancia desde la parte inferior */
+            right: 20px; /* Distancia desde la derecha */
         }
 
         .mus-button:hover {
@@ -351,11 +393,19 @@
     <div class="hearts-container" id="hearts-container"></div>
 
     <div class="header">
-        <button class="nav-button">Solicitada ;)</button>
-        <button class="nav-button">Playlist :3</button>
+        <a href="solicitada.html">
+            <button class="nav-button">Solicitada ;)</button>
+        </a>
+        <a href="solicitada.html">
+            <button class="nav-button">Playlist :3</button>
+        </a>
         <h1 class="title">ELAPURIN</h1>
-        <button class="nav-button">Cartita <3</button>
-        <button class="nav-button">je :)</button>
+        <a href="cartita.html">
+            <button class="nav-button">Cartita <3</button>
+        </a>
+        <a href="je.html">
+            <button class="nav-button">je :)</button>
+        </a>        
     </div>
 
     <div class="clouds">
@@ -367,7 +417,7 @@
 
     <div class="character-container floating" id="character">
         <!-- Usamos una imagen placeholder que puedes reemplazar con una imagen real de Pompompurin -->
-        <img src="purin.png" alt="Pompompurin" class="character-img" id="pompompurin-img">
+        <img src="Pompompurin.webp" alt="Pompompurin" class="character-img" id="pompompurin-img">
     </div>
 
     <div class="footer">
