@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumple</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fff5c6; /* Fondo amarillo claro uniforme */
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4b2700;
+            margin: 0 auto;
+            text-shadow: 2px 2px 0 #ff9b6a;
+        }
+
+        .nav-button {
+            background-color: #5e2c00;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.1);
+        }
+
+        .character-container {
+            position: relative;
+            margin: 20px 0;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .character-img {
+            width: 180px;
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        .footer {
+            text-align: center;
+            margin-bottom: 20px;
+            transition: opacity 1s;
+        }
+
+        .birthday-text {
+            color: #4b2700;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .cake {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cake-base {
+            width: 100px;
+            height: 70px;
+            background-color: #ffb6e1;
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cake-middle {
+            width: 110px;
+            height: 30px;
+            background-color: #ff9bda;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cake-top {
+            width: 90px;
+            height: 25px;
+            background-color: #ffcaec;
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .candle {
+            width: 8px;
+            height: 20px;
+            background-color: #98ff98;
+            position: absolute;
+            bottom: 105px;
+        }
+
+        .candle:nth-child(1) {
+            left: 40px;
+        }
+
+        .candle:nth-child(2) {
+            left: 60px;
+        }
+
+        .candle:nth-child(3) {
+            left: 80px;
+        }
+
+        .flame {
+            width: 10px;
+            height: 15px;
+            background-color: #ffdd00;
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            bottom: 125px;
+            animation: flicker 1s infinite alternate;
+        }
+
+        .flame:nth-child(4) {
+            left: 39px;
+        }
+
+        .flame:nth-child(5) {
+            left: 59px;
+        }
+
+        .flame:nth-child(6) {
+            left: 79px;
+        }
+
+        .plate {
+            width: 140px;
+            height: 20px;
+            background-color: #f5f5f5;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hidden-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 245, 198, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+            z-index: 100;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .hidden-message.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .message-content {
+            max-width: 80%;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .close-button {
+            background-color: #5e2c00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0;
+        }
+
+        @keyframes flicker {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .floating {
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .hearts-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff6b6b;
+            opacity: 0;
+            animation: float-up 4s forwards;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Estilos para el mensaje personalizado */
+        #personal-message {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: #4b2700;
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-container" id="hearts-container"></div>
+
+    <div class="header">
+        <button class="nav-button">Carta ♡</button>
+        <h1 class="title">ELAPURIN</h1>
+        <button class="nav-button" id="music-button">♫</button>
+    </div>
+
+    <div class="character-container floating" id="character">
+        <!-- Usamos una imagen placeholder que puedes reemplazar con una imagen real de Pompompurin -->
+        <img src="/api/placeholder/180/180" alt="Pompompurin" class="character-img" id="pompompurin-img">
+    </div>
+
+    <div class="footer">
+        <p class="birthday-text">FELIZ CUMPLE</p>
+        <div class="cake" id="cake">
+            <div class="plate"></div>
+            <div class="cake-base"></div>
+            <div class="cake-middle"></div>
+            <div class="cake-top"></div>
+            <div class="candle"></div>
+            <div class="candle"></div>
+            <div class="candle"></div>
+            <div class="flame"></div>
+            <div class="flame"></div>
+            <div class="flame"></div>
+        </div>
+    </div>
+
+    <div class="hidden-message" id="messageContainer">
+        <div class="message-content">
+            <h2>Mi querida:</h2>
+            <div id="personal-message">
+                ¡Feliz cumpleaños! Quiero que sepas que eres una persona increíble y especial. 
+                Cada momento contigo es un regalo y quiero celebrar tu vida hoy y siempre.
+                
+                Te hice esta pequeña página con mucho cariño para recordarte lo mucho que significas para mí.
+                
+                Con todo mi amor,
+                [Tu nombre]
+            </div>
+            <button class="close-button" id="closeButton">Cerrar ♡</button>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const character = document.getElementById('character');
+            const messageContainer = document.getElementById('messageContainer');
+            const closeButton = document.getElementById('closeButton');
+            const cake = document.getElementById('cake');
+            const heartsContainer = document.getElementById('hearts-container');
+            const musicButton = document.getElementById('music-button');
+            const bgMusic = document.getElementById('bgMusic');
+            const cartaButton = document.querySelector('.nav-button');
+            
+            // Función para mostrar el mensaje
+            function showMessage() {
+                messageContainer.classList.add('show');
+                createConfetti();
+            }
+            
+            // Función para cerrar el mensaje
+            closeButton.addEventListener('click', function() {
+                messageContainer.classList.remove('show');
+            });
+            
+            // Interacción con el personaje
+            character.addEventListener('click', function() {
+                document.getElementById('pompompurin-img').style.transform = 'scale(1.1)';
+                createHearts(5, character);
+                setTimeout(() => {
+                    document.getElementById('pompompurin-img').style.transform = 'scale(1)';
+                }, 300);
+            });
+            
+            // Interacción con el pastel
+            cake.addEventListener('click', function() {
+                createHearts(10, cake);
+                setTimeout(showMessage, 500);
+            });
+            
+            // Botón de carta
+            cartaButton.addEventListener('click', showMessage);
+            
+            // Controlar la música
+            let musicPlaying = false;
+            musicButton.addEventListener('click', function() {
+                if (musicPlaying) {
+                    bgMusic.pause();
+                    musicButton.textContent = '♫';
+                } else {
+                    bgMusic.play().catch(e => console.log('Error al reproducir música:', e));
+                    musicButton.textContent = '♫ ♡';
+                }
+                musicPlaying = !musicPlaying;
+            });
+            
+            // Función para crear corazones
+            function createHearts(count, sourceElement) {
+                const rect = sourceElement.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                for (let i = 0; i < count; i++) {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.textContent = '♥';
+                    heart.style.left = `${centerX - 10 + Math.random() * 20}px`;
+                    heart.style.top = `${centerY - 10 + Math.random() * 20}px`;
+                    heart.style.fontSize = `${15 + Math.random() * 15}px`;
+                    heart.style.animationDelay = `${Math.random() * 2}s`;
+                    heartsContainer.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heartsContainer.removeChild(heart);
+                    }, 4000);
+                }
+            }
+            
+            // Función para crear confeti
+            function createConfetti() {
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = `${Math.random() * 100}%`;
+                    confetti.style.top = `${Math.random() * 100}%`;
+                    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                    confetti.style.width = `${5 + Math.random() * 10}px`;
+                    confetti.style.height = `${5 + Math.random() * 10}px`;
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    confetti.style.opacity = '1';
+                    confetti.style.transition = 'transform 5s, top 5s, opacity 5s';
+                    
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.style.transform = `rotate(${Math.random() * 360}deg) translate(${Math.random() * 100 - 50}px, ${Math.random() * -250}px)`;
+                        confetti.style.opacity = '0';
+                    }, 10);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(confetti);
+                    }, 5000);
+                }
+            }
+            
+            // Crear corazones aleatorios de vez en cuando
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    createHearts(1, character);
+                }
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
