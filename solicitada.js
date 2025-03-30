@@ -14,13 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Labels for each image (you can customize these)
     const labels = ['QUEER', 'ARTE'];
-    const mensaje = `¡Feliz cumpleaños! 🎉\n
-    Quiero que sepas que eres una persona increíble y especial.\n
-    Cada momento contigo es un regalo y quiero celebrar tu vida hoy y siempre. 💖\n
-    Te hice esta pequeña página con mucho cariño para recordarte lo mucho que significas para mí.\n
-    Espero que te haga sonreír. 😊\n
-    Con todo mi amor,\n
-    [Tu nombre]`;
+    const mensaje = `oki linda, como no nos vemos hace tanto y probablemente no nos veamos muy cercano :(\n
+    yyy como suelo olvidar tomarme fotos ahaha y se que extrañas mis bonitas cejas :3 aqui tienes muchas\n
+    fotos inneditas de vivi chiquita y misteriosa. No voy a dejar que te olvides de mi ni de mis dientes\n
+    redondos obvio. eeeeeeeee disfruta? ahhaajhaja`;
 
     // Create indicators
     for (let i = 0; i < slideCount; i++) {
@@ -39,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get all indicators
     const indicators = document.querySelectorAll('.indicator');
     
-    // Function to update the background with the current image
+    //Function to update the background with the current image
     function updateBackground() {
         const currentImage = slides[currentIndex].querySelector('img').src;
         background.style.backgroundImage = `url(${currentImage})`;
@@ -99,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateGallery();
 
     let index = 0;
-    const velocidad = 50; // Velocidad en milisegundos
+    const velocidad = 75; // Velocidad en milisegundos
     const mensajeElemento = document.getElementById("mensaje");
 
     function escribirTexto() {

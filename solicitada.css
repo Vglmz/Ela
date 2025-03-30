@@ -42,29 +42,53 @@ body {
 .goku {
     top: 10%;
     left: -10%;
-    width: 200px;
+    width: 220px;
 }
 
 .gromit {
+    top: 110%;
+    left: 65%;
+    width: 200px;
+}
+
+.pochaco {
+    top: 0%;
+    left: 3%;
+    width: 320px;
+}
+
+.spider1 {
+    top: -5%;
+    left: 78%;
+    width: 200px;
+}
+
+.spider2 {
+    top: 115%;
+    left: 45%;
+    width: 150px;
+}
+
+.koi {
     top: 90%;
     left: 92%;
     width: 200px;
 }
 
-.pochaco {
-    top: 10%;
-    left: 5%;
-    width: 200px;
+.yoshi {
+    top: 5%;
+    left: 95%;
+    width: 150px;
 }
 
-.spider1 {
-    top: 0%;
-    left: 92%;
-    width: 200px;
+.garu {
+    top: 110%;
+    left: 15%;
+    width: 220px;
 }
 
-.spider2 {
-    top: 98%;
+.perro {
+    top: 108%;
     left: -8%;
     width: 150px;
 }
@@ -79,7 +103,6 @@ body {
     background-position: center;
     filter: blur(15px);
     opacity: 0.3;
-    transition: background-image 1s ease;
     z-index: -1;
 }
 
@@ -97,7 +120,7 @@ body {
 }
 
 .gallery-title {
-    font-family: "Bytesized", sans-serif;
+    font-family: "Bungee Outline", sans-serif;
     font-weight: 400;
     font-style: normal;
     text-align: center;
@@ -124,7 +147,7 @@ body {
 
 .gallery {
     display: flex;
-    height: 100%;
+    height: 140%;
     transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
@@ -146,7 +169,7 @@ body {
 
 .controls {
     position: absolute;
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     top: 50%;
@@ -231,7 +254,4 @@ body {
         font-size: 2.5rem;
     }
     
-    .year {
-        font-size: 1.5rem;
-    }
 }
