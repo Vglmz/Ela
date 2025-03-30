@@ -64,6 +64,12 @@ a {
     transform: scale(1.1);
 }
 
+@keyframes moveClouds {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(100px); }
+}
+
+
 .clouds {
     position: absolute;
     width: 100%;
@@ -76,6 +82,7 @@ a {
 .cloud {
     position: absolute;
     opacity: 0.4; /* Nubes semi-transparentes */
+    animation: moveClouds 10s linear infinite alternate;
 }
 
 .cloud1 {
