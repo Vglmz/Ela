@@ -269,6 +269,45 @@ body {
     font-style: normal;
 }
 
+.mus-button{
+    /*position: fixed; /* Lo mantiene fijo en la pantalla *
+    top: 90%; /* Distancia desde la parte superior *
+    right: 20px; /* Distancia desde la derecha *
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente *
+    color: rgb(20, 31, 18);
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos *
+    transition: background-color 0.3s ease;*/
+
+    position: fixed; /* Lo mantiene fijo en la pantalla */
+    top: 90%; /* Distancia desde la parte superior */
+    right: 20px; /* Distancia desde la derecha */
+    background-color: rgba(6, 36, 12, 0.7);
+    color: rgb(146, 157, 144);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /*Asegura que esté por encima de otros elementos*/
+    transition: background-color 0.3s ease;
+}
+
+.mus-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+
 
 
 @media (max-width: 768px) {

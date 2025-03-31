@@ -305,6 +305,9 @@ a {
 }
 
 .mus-button {
+    position: fixed; /* Lo mantiene fijo en la pantalla */
+    top: 90%; /* Distancia desde la parte superior */
+    right: 20px; /* Distancia desde la derecha */
     background-color: #10362C;
     color: white;
     border: none;
@@ -318,9 +321,6 @@ a {
     align-items: center;
     margin: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    bottom: 20px; /* Distancia desde la parte inferior */
-    right: 20px; /* Distancia desde la derecha */
 }
 
 .mus-button:hover {

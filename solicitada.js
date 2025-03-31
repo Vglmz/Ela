@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateGallery();
 
     let index = 0;
-    const velocidad = 15; // Velocidad en milisegundos 75
+    const velocidad = 65; // Velocidad en milisegundos 75
     const mensajeElemento = document.getElementById("mensaje");
 
     function escribirTexto() {
@@ -112,7 +112,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     escribirTexto(); // Iniciar animación
+
+
+    window.addEventListener("load", function () {
+        let audio = document.getElementById("background-audio");
     
+        // Intenta reproducir automáticamente
+        let playPromise = audio.play();
+    
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                // Si el navegador bloquea la reproducción, espera la interacción del usuario
+                document.addEventListener("click", () => {
+                    audio.play();
+                }, { once: true }); // Solo se ejecuta una vez
+            });
+        }
+    
+        // Evento para pausar y reproducir el audio con el botón
+        document.getElementById("toggle-audio").addEventListener("click", function () {
+            if (audio.paused) {
+                audio.play();
+                this.textContent = "⏸"; // Cambia el texto del botón
+            } else {
+                audio.pause();
+                this.textContent = "▶"; // Cambia el texto del botón
+            }
+        });
+    });
     // Auto-rotate slides every 5 seconds (optional)
     // Uncomment the code below if you want auto-rotation
     /*
