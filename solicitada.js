@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateGallery();
 
     let index = 0;
-    const velocidad = 75; // Velocidad en milisegundos
+    const velocidad = 15; // Velocidad en milisegundos 75
     const mensajeElemento = document.getElementById("mensaje");
 
     function escribirTexto() {

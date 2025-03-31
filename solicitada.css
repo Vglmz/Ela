@@ -3,6 +3,7 @@ body{
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    outline: 1px solid red;
 }
 
 body {
@@ -23,6 +24,8 @@ body {
     font-style: normal;
     font-variation-settings:
         "wdth" 100;
+        margin-bottom: 50px; /* Añade espacio entre el texto y la imagen */
+        text-align: center; /* Para mejorar la presentación */
 }
 
 .imgs {
@@ -222,8 +225,9 @@ body {
 }
 
 .label {
-    position: absolute;
-    bottom: 340px; /* Subir el label */
+    position: relative;
+    bottom: auto; /* Subir el label 340px*/
+    margin-top: 20px; 
     width: 100%;
     text-align: center;
     z-index: 20;
