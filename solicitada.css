@@ -3,7 +3,6 @@ body{
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    outline: 1px solid red;
 }
 
 body {
@@ -18,13 +17,14 @@ body {
 
 .mensaj{
     color: white;
-    font-family: "Tektur", sans-serif;
+    font-family: "Yomogi", cursive;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
+    margin-top: 40px;
     font-variation-settings:
         "wdth" 100;
-        margin-bottom: 50px; /* Añade espacio entre el texto y la imagen */
+        margin-bottom: 60px; /* Añade espacio entre el texto y la imagen */
         text-align: center; /* Para mejorar la presentación */
 }
 
@@ -112,30 +112,49 @@ body {
 .container {
     width: 100%;
     max-width: 1200px;
-    height: 100vh;
+    min-height: 100vh; /* Cambiado de height a min-height */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Cambiado de center a flex-start */
     align-items: center;
-    padding: 20px;
+    padding: 20px 20px 40px 20px; /* Aumentado el padding superior */
     position: relative;
     z-index: 1;
 }
 
 .gallery-title {
-    font-family: "Bungee Outline", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+    font-family: "Gaegu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 50;
+    width: auto;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    display: inline-block; /* Asegura que ocupe solo el ancho necesario */
+    /* Nuevas propiedades para el cuadro */
+    background-color: rgba(215, 222, 214, 0.167); /* Fondo negro semi-transparente */
+    padding: 0px 45px;
+    line-height: 1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 90%; /* Para que no ocupe todo el ancho en pantallas grandes */
+    margin-left: auto;
+    margin-right: auto;
+    /*border: 2px solid #8390b5; /* Borde azul que complementa los colores existentes */
 }
 
 .gallery-title h1 {
-    font-size: 5rem;
-    margin-bottom: 5px;
+    font-size: clamp(2rem, 10vw, 5rem);
+    margin: 0.5%;
+    margin-bottom: 10px;
     letter-spacing: 3px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    color: rgb(37, 51, 13); /* Asegura que el texto sea blanco para contrastar con el fondo */
+    /*text-shadow: 0 0 10px rgba(118, 147, 122, 0.8); /* Un brillo azul alrededor del texto */
 }
-
 .gallery-title p {
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.7);
@@ -143,44 +162,49 @@ body {
 
 .gallery-container {
     width: 100%;
-    height: 70vh;
+    max-width: 900px;
+    height: auto; /* Cambiamos a auto para que se ajuste al contenido */
     position: relative;
-    overflow: hidden;
+    overflow: visible; /* Cambiamos a visible para ver todo el contenido */
+    margin: 0 auto 50px auto; /* Añadimos margen inferior */
 }
 
 .gallery {
     display: flex;
-    height: 140%;
+    width: 100%;
+    height: auto;
     transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .slide {
     flex: 0 0 100%;
-    height: 100%;
+    width: 100%;
+    height: 400px; /* Altura fija - ajústala según necesites */
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 .slide img {
-    max-width: 80%;
-    max-height: 80%;
-    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Esto mantiene la proporción */
     border-radius: 5px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .controls {
     position: absolute;
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     top: 50%;
     transform: translateY(-50%);
-    padding: 0 30px;
     z-index: 10;
 }
-
 .btn {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
@@ -208,6 +232,8 @@ body {
     justify-content: center;
     gap: 15px;
     margin-top: 30px;
+    position: relative;
+    z-index: 30;
 }
 
 .indicator {
@@ -226,21 +252,21 @@ body {
 
 .label {
     position: relative;
-    bottom: auto; /* Subir el label 340px*/
-    margin-top: 20px; 
     width: 100%;
     text-align: center;
+    margin-top: 20px;
     z-index: 20;
 }
 
 .label span {
     font-size: 4rem;
-    color: #4169e1;
+    color: #93a3d2;
     font-weight: bold;
     letter-spacing: 2px;
-    font-family: 'Arial', sans-serif;
+    font-family: "Dokdo", system-ui;
     text-transform: uppercase;
-    font-style: italic;
+    font-weight: 400;
+    font-style: normal;
 }
 
 
