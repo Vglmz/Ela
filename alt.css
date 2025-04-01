@@ -1,0 +1,356 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #12263f;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.mensaj{
+    color: white;
+    font-family: "Yomogi", cursive;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    margin-top: 40px;
+    font-variation-settings:
+        "wdth" 100;
+        margin-bottom: 60px; /* Añade espacio entre el texto y la imagen */
+        text-align: center; /* Para mejorar la presentación */
+}
+
+.imgs {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Para que las nubes estén en el fondo */
+}
+
+.img {
+    position: absolute;
+    opacity: 1;
+}
+
+.hamster {
+    top: 10%;
+    left: -10%;
+    width: 220px;
+}
+
+.fresas {
+    top: 110%;
+    left: 65%;
+    width: 200px;
+}
+
+.coca {
+    top: 0%;
+    left: 3%;
+    width: 320px;
+}
+
+.curita {
+    top: -5%;
+    left: 78%;
+    width: 200px;
+}
+
+.chansey {
+    top: 115%;
+    left: 45%;
+    width: 150px;
+}
+
+.bonnie {
+    top: 90%;
+    left: 92%;
+    width: 200px;
+}
+
+.ajolote {
+    top: 5%;
+    left: 95%;
+    width: 150px;
+}
+
+.justin {
+    top: 110%;
+    left: 15%;
+    width: 220px;
+}
+
+.knuckles_ramo {
+    top: 108%;
+    left: -8%;
+    width: 150px;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px);
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 100vh; /* Cambiado de height a min-height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Cambiado de center a flex-start */
+    align-items: center;
+    padding: 20px 20px 40px 20px; /* Aumentado el padding superior */
+    position: relative;
+    z-index: 1;
+}
+
+.gallery-title {
+    font-family: "Gaegu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 50;
+    width: auto;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    display: inline-block; /* Asegura que ocupe solo el ancho necesario */
+    /* Nuevas propiedades para el cuadro */
+    background-color: rgba(215, 222, 214, 0.167); /* Fondo negro semi-transparente */
+    padding: 0px 45px;
+    line-height: 1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 90%; /* Para que no ocupe todo el ancho en pantallas grandes */
+    margin-left: auto;
+    margin-right: auto;
+    /*border: 2px solid #8390b5; /* Borde azul que complementa los colores existentes */
+}
+
+.gallery-title h1 {
+    font-size: clamp(2rem, 10vw, 5rem);
+    margin: 0.5%;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    color: rgb(37, 51, 13); /* Asegura que el texto sea blanco para contrastar con el fondo */
+    /*text-shadow: 0 0 10px rgba(118, 147, 122, 0.8); /* Un brillo azul alrededor del texto */
+}
+.gallery-title p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.gallery-container {
+    width: 100%;
+    max-width: 900px;
+    height: auto; /* Cambiamos a auto para que se ajuste al contenido */
+    position: relative;
+    overflow: visible; /* Cambiamos a visible para ver todo el contenido */
+    margin: 0 auto 50px auto; /* Añadimos margen inferior */
+}
+
+.gallery {
+    display: flex;
+    width: 100%;
+    height: auto;
+    transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 400px; /* Altura fija - ajústala según necesites */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.slide img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Esto mantiene la proporción */
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.controls {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+.btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.indicators {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    position: relative;
+    z-index: 30;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+.label {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    z-index: 20;
+}
+
+.label span {
+    font-size: 4rem;
+    color: #93a3d2;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: "Dokdo", system-ui;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.mus-button{
+    /*position: fixed; /* Lo mantiene fijo en la pantalla *
+    top: 90%; /* Distancia desde la parte superior *
+    right: 20px; /* Distancia desde la derecha *
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente *
+    color: rgb(20, 31, 18);
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos *
+    transition: background-color 0.3s ease;*/
+
+    position: fixed; /* Lo mantiene fijo en la pantalla */
+    top: 90%; /* Distancia desde la parte superior */
+    right: 20px; /* Distancia desde la derecha */
+    background-color: rgba(6, 36, 12, 0.7);
+    color: rgb(146, 157, 144);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /*Asegura que esté por encima de otros elementos*/
+    transition: background-color 0.3s ease;
+}
+
+.mus-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/*----------------------------------------------------------------------------------------*/
+
+#mensaje {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-family: "Tektur", sans-serif;
+    z-index: 1000;
+    width: 250px;
+    max-width: 80%;
+    border: 2px solid white;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.5);
+    position: fixed;
+}
+
+#mensaje span {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+
+
+@media (max-width: 768px) {
+    .gallery-title h1 {
+        font-size: 2rem;
+    }
+    
+    .slide img {
+        max-width: 90%;
+    }
+    
+    .label span {
+        font-size: 2.5rem;
+    }
+    
+}

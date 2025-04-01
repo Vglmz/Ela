@@ -1,10 +1,29 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #785f7d;
+    /*background-color: #445a50;*/
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url("descargar\ \(1\).jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/*
+.fondo-desenfocado {
+    position: fixed;
+    width: 80%;
+    height: 100%;
+    background: #445a50 url('descargar\ \(1\).jpeg') center/cover;
+
+}*/
+
+.contenedor {
+    position: fixed;
+    width: 100%;
+    height: 150%;
+    backdrop-filter: blur(10px);  /*Aplica el desenfoque */
 }
 
 .container {
@@ -116,7 +135,7 @@ body {
     width: 200px;
 }
 /*-------------------------------------------------------------------------------------------------*/
-
+/*
 .note {
     width: 50px;
     height: 50px;
@@ -134,7 +153,24 @@ body {
     position: relative;
     overflow: hidden;
 
+        position: absolute;
+        width: 100px;  Ajusta según el tamaño de la imagen *
+        height: auto;
+    
+}*/
+
+.note-img {
+    width: 100px; /* Ajusta el tamaño según necesites */
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
+
+.note-img:hover {
+    transform: scale(1.05);
+}
+
+
 .note:hover {
     transform: scale(1.05);
 }
@@ -168,33 +204,7 @@ body {
     transform: scale(1.05);
 }
 
-.note:nth-child(2n) {
-    background-color: #99abc2;
-}
-
-.note:nth-child(3n) {
-    background-color: #c299a6;
-}
-
-.note:nth-child(4n) {
-    background-color: #aec299;
-}
-
-.note:nth-child(5n) {
-    background-color: #c2a699;
-}
-
-.dart {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23333' d='M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z'/%3E%3C/svg%3E");
-    background-size: contain;
-    z-index: 100;
-    opacity: 0;
-    transform: scale(0.5);
-}
-
+/*
 h1 {
     font-family: "Bungee Inline", sans-serif;
     font-weight: 400;
@@ -203,7 +213,41 @@ h1 {
     margin-bottom: 5px;
     letter-spacing: 3px;
 }
+*/
 
+.titulo {
+    font-family: "Pangolin", cursive;
+  font-weight: 400;
+  font-style: normal;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 50;
+    width: auto;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    display: inline-block; /* Asegura que ocupe solo el ancho necesario */
+    /* Nuevas propiedades para el cuadro */
+    background-color: rgba(215, 222, 214, 0.167); /* Fondo negro semi-transparente */
+    padding: 0px 45px;
+    line-height: 1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 90%; /* Para que no ocupe todo el ancho en pantallas grandes */
+    margin-left: auto;
+    margin-right: auto;
+    /*border: 2px solid #8390b5; /* Borde azul que complementa los colores existentes */
+}
+
+.titulo h1 {
+    font-size: clamp(1rem, 7vw, 5rem);
+    margin: 0.5%;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    color: rgb(37, 51, 13); /* Asegura que el texto sea blanco para contrastar con el fondo */
+    /*text-shadow: 0 0 10px rgba(118, 147, 122, 0.8); /* Un brillo azul alrededor del texto */
+}
 
 .subtitle {
     color: #666;
