@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const heartsContainer = document.getElementById('hearts-container');
     const musicButton = document.getElementById('music-button');
     const bgMusic = document.getElementById('bgMusic');
-    const cartaButton = document.querySelector('.nav-button');
+    const cartaButton = document.querySelector('cake');
     
     // Función para mostrar el mensaje
     function showMessage() {
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             bgMusic.pause();
             musicButton.textContent = '⏸';
         } else {
-            bgMusic.play().catch(e => console.log('Error al reproducir música:', e));
+            bgMusic.play().catch(e => console.log('Error al reproducir musica me quiero matar mucho:', e));
             musicButton.textContent = '▶';
         }
         musicPlaying = !musicPlaying;
@@ -105,4 +105,11 @@ document.addEventListener('DOMContentLoaded', function() {
             createHearts(1, character);
         }
     }, 3000);
+
+    const goToPageButton = document.getElementById('goToPageButton');
+
+goToPageButton.addEventListener('click', function() {
+    window.open('regalo.html', '_blank'); // '_blank' abre la URL en una nueva pestaña
+});
+
 });

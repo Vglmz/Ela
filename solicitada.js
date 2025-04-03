@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
     
     // Labels for each image (you can customize these)
-    const labels = ['QUEER', 'ARTE'];
+    const labels = ['sonrojadita', 'malmirada ahahah', 'caperucita  je', 'ajsdkasdasd???', 'mis pocos brotes artisticos', 'tatuajes gays. Mi mejor momento tatuada, gay y con camiseta del barcelona je', 'JASJDJASJ vivi ranita', 'lindas trensas', 'costurera??', 'aaaaa un perezoso que lindo', 'foto alterna inedita de la iconica ahahha', 'no se que monda era eso estaba rico', 'que asco viviana', 'JAJAJJAJAJA vivi capul debe ser borrada de las memorias', 'JAJAJAJAJAJAJ soy una dramatica', 'ajsdasjdas estaba enfermita con mi ojo diomedes diaz', 'el celular de mi mama tenia meros juegos :)', 'JAJAJAJAJJAJA re tiesa', 'dato curioso: de mis regalos favoritos jamas. me lo dio mi tia que fallecio y me pone triste que lo regalaron :(', 'vivi gay. asi te enamoro no? ;)', 'JAJAJAJJAJJAJAJAJJAJJA sin comentarios. la rompi', 'dientes redondos para ti amor :)', 'profundo cuento que reflejaba mi necesidad de un perro... y como ves daniela siempre fue mi nombre favorito. el nombre del amor de mi vida diria yo', 'asjdajsdja porque lloraba?? me gustaba esa chaqueta alto flow', 'dramatica, mira mi lunar je ;)','foto final de la programadora que hizo esto con mucho amor para ti hermosa. te amo no sabes cuanto amor.', 'y mi foto favorita hasta la fecha. de los mejores dias de mi vida ela'];
     const mensaje = `oki linda, como no nos vemos hace tanto y probablemente no nos veamos muy cercano :(\n
     yyy como suelo olvidar tomarme fotos ahaha y se que extrañas mis bonitas cejas :3 aqui tienes muchas\n
     fotos inneditas de vivi chiquita y misteriosa. No voy a dejar que te olvides de mi ni de mis dientes\n
-    redondos obvio. eeeeeeeee disfruta? ahhaajhaja`;
+    redondos obvio. teamoteamoteamo hermosa. eeeeeeeee disfruta? ahhaajhaja`;
 
     // Create indicators
     for (let i = 0; i < slideCount; i++) {
@@ -44,8 +44,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to update the gallery position
     function updateGallery() {
+        // Aplicamos la transformación de manera consistente para todas las imágenes
         gallery.style.transform = `translateX(-${currentIndex * 100}%)`;
-        imageLabel.textContent = labels[currentIndex];
+        
+        // Aseguramos que cada slide mantiene su anchura exacta
+        slides.forEach(slide => {
+            slide.style.width = '100%';
+            slide.style.flex = '0 0 100%';
+        });
+        
+        // Actualizamos la etiqueta alternando entre los dos valores
+        imageLabel.textContent = labels[currentIndex % labels.length];
         
         // Update indicators
         indicators.forEach((ind, index) => {
@@ -62,20 +71,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to go to a specific slide
     function goToSlide(index) {
+        // Aseguramos que el índice está dentro del rango
+        if (index < 0) index = slideCount - 1;
+        if (index >= slideCount) index = 0;
+        
         currentIndex = index;
         updateGallery();
     }
     
     // Function to go to the next slide
     function nextSlide() {
-        currentIndex = (currentIndex + 1) % slideCount;
-        updateGallery();
+        goToSlide((currentIndex + 1) % slideCount);
     }
     
     // Function to go to the previous slide
     function prevSlide() {
-        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-        updateGallery();
+        goToSlide((currentIndex - 1 + slideCount) % slideCount);
     }
     
     // Event listeners
@@ -113,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     escribirTexto(); // Iniciar animación
 
-
     window.addEventListener("load", function () {
         let audio = document.getElementById("background-audio");
     
@@ -140,11 +150,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    // Auto-rotate slides every 5 seconds (optional)
-    // Uncomment the code below if you want auto-rotation
-    /*
-    setInterval(() => {
-        nextSlide();
-    }, 5000);
-    */
 });

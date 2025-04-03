@@ -3,59 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notas con Dardos</title>
+    <title>Te amo</title>
     <link rel="stylesheet" href="je.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Arial&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+
 
 </head>
 <body>
-
-    <div class="fondo-desenfocado"></div>
-<div class="contenedor">
-    <h1>Contenido visible</h1>
-</div>
-
-    <div class="titulo">
-        <h1>CUMPLEAÑERA ;)</h1>
-    </div>
-
-    <div class="mensaj">
-        <div id="mensaje"></div>
-    </div>
-    <p class="subtitle">como a las cumpleañeras se les trata lindo, y hace mucho no te puedo decir estas cosas... estas son algunas cosas que me encantan de ti :3</p>
+    <h1>CUMPLEAÑERA ;)</h1>
     
-    <div class="imgs">
-      <img src="coca.png" class="img coca">
-      <img src="justin.png" class="img justin">
-      <img src="ajolote.png" class="img ajolote">
-      <img src="orquid.png" class="img orquid">
-      <img src="fresas.png" class="img fresas">
-      <img src="knuckles.png" class="img knuckles">
-      <img src="curita.png" class="img curita">
-      <img src="kirby.png" class="img kirby">
-      <img src="kirby2.png" class="img kirby2">
-      <img src="knuckles_ramo.png" class="img knuckles_ramo">
-      <img src="chansey.png" class="img chansey">
-      <img src="hamster.png" class="img hamster">
-      <img src="bonnie.webp" class="img bonnie">
-      <img src="purin.png" class="img purin">
-  </div>
-
-    <div class="controls">
-        <button id="reset">Reiniciar</button>
+    <div class="estrellas">
+        <img src="vertopal.com_alt select.png" class="e e1">
+        <img src="vertopal.com_default.png" class="e e2">
+        <img src="vertopal.com_alt select.png" class="e e5">
+        <img src="vertopal.com_default.png" class="e e6">
     </div>
+
+    <p class="subtitle" id="subtitle">
+        Como a las cumpleañeras se les trata lindo, y hace mucho no te puedo decir estas cosas... 
+        Estas son algunas cosas que me encantan de ti y extraño ver a diario :3
+    </p>
     
     <div id="container" class="container"></div>
+    
     <!-- Modal -->
     <div id="messageModal" class="modal">
-      <div class="modal-content">
-          <span class="close">&times;</span>
-          <p id="modalMessage"></p>
-      </div>
-  </div>
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+    <button class="mus-button" id="music-button">♫</button>
+    <audio id="bgMusic" loop>
+        <source src="enUnSoloDia.mp3" type="audio/mp3">
+    </audio>
     <script src="je.js"></script>
 </body>
 </html>

@@ -163,10 +163,10 @@ body {
 .gallery-container {
     width: 100%;
     max-width: 900px;
-    height: auto; /* Cambiamos a auto para que se ajuste al contenido */
+    height: auto;
     position: relative;
-    overflow: visible; /* Cambiamos a visible para ver todo el contenido */
-    margin: 0 auto 50px auto; /* Añadimos margen inferior */
+    overflow: hidden; /* Cambiado de 'visible' a 'hidden' para ocultar slides que no se muestran */
+    margin: 0 auto 50px auto;
 }
 
 .gallery {
@@ -184,6 +184,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    box-sizing: border-box; /* Importante: incluye padding en el cálculo del ancho */
 }
 
 .slide img {
@@ -194,8 +195,9 @@ body {
     object-fit: contain; /* Esto mantiene la proporción */
     border-radius: 5px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: block; /* Evita espacio extra debajo de la imagen */
+    margin: 0 auto; /* Centra horizontalmente */
 }
-
 .controls {
     position: absolute;
     width: 100%;
@@ -259,10 +261,10 @@ body {
 }
 
 .label span {
-    font-size: 4rem;
+    font-size: 2rem;
     color: #93a3d2;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-family: "Dokdo", system-ui;
     text-transform: uppercase;
     font-weight: 400;
@@ -270,19 +272,6 @@ body {
 }
 
 .mus-button{
-    /*position: fixed; /* Lo mantiene fijo en la pantalla *
-    top: 90%; /* Distancia desde la parte superior *
-    right: 20px; /* Distancia desde la derecha *
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente *
-    color: rgb(20, 31, 18);
-    border: none;
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos *
-    transition: background-color 0.3s ease;*/
-
     position: fixed; /* Lo mantiene fijo en la pantalla */
     top: 90%; /* Distancia desde la parte superior */
     right: 20px; /* Distancia desde la derecha */
