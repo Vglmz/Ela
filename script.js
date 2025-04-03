@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Elementos del DOM
     const character = document.getElementById('character');
     const messageContainer = document.getElementById('messageContainer');
     const closeButton = document.getElementById('closeButton');
@@ -6,7 +7,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const heartsContainer = document.getElementById('hearts-container');
     const musicButton = document.getElementById('music-button');
     const bgMusic = document.getElementById('bgMusic');
-    const cartaButton = document.querySelector('cake');
+    
+    // Verificar si el elemento de audio existe y está cargado
+    if (bgMusic) {
+        console.log("Audio element found");
+        
+        // Verificar si la fuente del audio está bien configurada
+        const audioSource = bgMusic.querySelector('source');
+        if (audioSource) {
+            console.log("Audio source found:", audioSource.src);
+        } else {
+            console.error("No audio source found!");
+        }
+        
+        // Manejar errores de carga del audio
+        bgMusic.addEventListener('error', function(e) {
+            console.error("Audio error:", e);
+        });
+    } else {
+        console.error("Audio element not found!");
+    }
     
     // Función para mostrar el mensaje
     function showMessage() {
@@ -34,21 +54,13 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(showMessage, 500);
     });
     
-    // Botón de carta
-    cartaButton.addEventListener('click', showMessage);
-    
-    // Controlar la música
-    let musicPlaying = false;
-    musicButton.addEventListener('click', function() {
-        if (musicPlaying) {
-            bgMusic.pause();
-            musicButton.textContent = '⏸';
-        } else {
-            bgMusic.play().catch(e => console.log('Error al reproducir musica me quiero matar mucho:', e));
-            musicButton.textContent = '▶';
-        }
-        musicPlaying = !musicPlaying;
-    });
+    // Botón del mensaje - Corregido el selector
+    const cartaButton = document.querySelector('#cake');  // Usar # para seleccionar por ID
+    if (cartaButton) {
+        cartaButton.addEventListener('click', showMessage);
+    } else {
+        console.error("Carta button not found!");
+    }
     
     // Función para crear corazones
     function createHearts(count, sourceElement) {
@@ -106,10 +118,44 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 3000);
 
+    // Botón para abrir página de regalo
     const goToPageButton = document.getElementById('goToPageButton');
+    if (goToPageButton) {
+        goToPageButton.addEventListener('click', function() {
+            window.open('regalo.html', '_blank');
+        });
+    }
 
-goToPageButton.addEventListener('click', function() {
-    window.open('regalo.html', '_blank'); // '_blank' abre la URL en una nueva pestaña
-});
-
+    // Controlar la música
+    let musicPlaying = false;
+    if (musicButton) {
+        musicButton.addEventListener('click', function() {
+            console.log("Music button clicked, current state:", musicPlaying);
+            
+            if (musicPlaying) {
+                bgMusic.pause();
+                musicButton.textContent = '♫';
+                musicPlaying = false;
+                console.log("Music paused");
+            } else {
+                // Reiniciar desde el principio si es necesario
+                // bgMusic.currentTime = 0;
+                
+                const playPromise = bgMusic.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        musicButton.textContent = '⏸';
+                        musicPlaying = true;
+                        console.log("Music playing");
+                    }).catch(e => {
+                        console.error("Error playing music:", e);
+                        alert("No se pudo reproducir la música. Por favor, intenta hacer clic en cualquier parte de la página primero.");
+                    });
+                }
+            }
+        });
+    } else {
+        console.error("Music button not found!");
+    }
 });
